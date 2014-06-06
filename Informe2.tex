@@ -1,0 +1,145 @@
+\documentclass[letterpaper, titlepage]{article}
+\include{Preambulo}
+\include{Scripts}
+\begin{document}
+\maketitle
+\newpage
+\section{Resumen}
+\section{Objetivos}
+	\begin{itemize}
+		\item Objetivo
+		\item Objetivo
+	\end{itemize}
+\newpage
+
+\section{Descripción del Problema}
+	\begin{enumerate}
+		\item \textbf{Problema 1}
+		
+		El primer problema consiste en comprobar el comportamiento estático del VCO verificando su rango de linealidad, la constante de desviación de frecuencia $K_f$ y el correcto funcionamiento según el diseño de las componentes.
+		\item \textbf{Problema 2}
+		
+		\item \textbf{Problema 3}
+		
+		\item \textbf{Problema 4}
+		
+		\item \textbf{Problema 5}
+	\end{enumerate}
+\newpage
+
+\section{Metodología}
+	\begin{enumerate}
+		\item \textbf{Problema 1}
+		\begin{enumerate}
+			\item Para lograr observar el rango de linealidad del VCO se conecta una fuente a la entrada del VCO pero sin considerar el condensador de entrada con el objetivo de realizar un análisis estático (voltaje $m'(t)$). Según el diseño propuesto se saben tanto la amplitud de la señal de entrada esperada ($A_m$) y el voltaje del pin 4 ($V_{T4}$) en el circuito integrado lo cual nos permite saber entre qué valores de voltaje se debe ajustar la señal continua a la entrada para así observar a la salida una señal con frecuencia dentro del rango $\big[f_c-\Delta_f,f_c+\Delta_f\big]$.
+			\item Se divide el rango de voltajes de entrada estáticos en 10 valores distintos para luego medir mediante un osciloscopio la frecuencia de salida del VCO en cada uno de estos valores. Luego los valores se registran en una tabla y se grafica la curva $\Delta_f$ vs $V_c$.
+			\item Finalmente se comparan los valores de $K_f$ y $\Delta_f$ obtenidos experimentalmente con los calculados teóricamente y se explican las posibles discrepancias de los valores observando los respectivos errores experimentales.
+		\end{enumerate}
+		
+		\item \textbf{Problema 2}
+		\begin{enumerate}
+			\item asd
+			\item asd
+			\item asd
+		\end{enumerate}
+		
+		\item \textbf{Problema 3}
+		\begin{enumerate}
+			\item asd
+			\item asd
+			\item asd
+			\item asd
+		\end{enumerate}
+		
+		\item \textbf{Problema 4}
+		\begin{enumerate}
+			\item asd
+			\item asd
+			\item asd
+			\item asd
+			\item asd
+			\item asd
+		\end{enumerate}
+		
+		\item \textbf{Problema 5}
+		\begin{enumerate}
+			\item asd
+			\item asd
+			\item asd
+			\item asd
+			\item asd
+		\end{enumerate}
+	\end{enumerate}
+\newpage
+\newpage
+
+\section{Resultados y Contrastaciones}
+	\begin{enumerate}
+		\item \textbf{Problema 1}
+		
+		{Los valores obtenidos en las mediciones estáticas se muestran en la tabla \ref{tab:tabla1}.
+		
+		\begin{table}[ht]
+			\centering
+			\begin{tabular}{r|c c c}
+				Nº & Frecuencia [KHz] & Voltaje $V_c$ $[V]$ & $\Delta_f$ [Hz] \\
+				\hline \rule{0ex}{4ex}
+				1 	& 62.500 & -3.0	&  23.13 \\
+				2 	& 57.803 & -1.2	&  18.43 \\
+				3 	& 53.191 &  0.6	&  13.82 \\
+				4 	& 48.544 &  2.4	&   9.17 \\
+				5 	& 44.053 &  4.2	&   4.68 \\
+				6 	& 39.370 &  6.0	&   0.00 \\
+				7 	& 34.364 &  7.8	&  -5.01 \\
+				8 	& 29.940 &  9.6	&  -9.43 \\
+				9 	& 24.750 & 11.4 & -14.62 \\
+				10 	& 20.240 & 13.2	& -19.13 \\
+				11 	& 15.432 & 15.0	& -23.94
+			\end{tabular}
+			\caption{Voltaje vs Frecuencia (estático).}
+			\label{tab:tabla1}
+		\end{table}
+		
+		La gráfica $\Delta_f$ vs $V_c$ se ilustra en la Figura \ref{fig:1_1}
+		
+		\imagen[0.7]
+			{1_1}{\label{fig:1_1}}
+			{Gráfica $\Delta_f$ vs $V_c$.}
+			
+		Se puede notar de la grafica que el comportamiento del VCO es muy cercano a ser lineal con pendiente negativa dentro del rango considerado. El valor de la frecuencia central es aquel cuando $V_c=V_{T4}\approx 6\,[V]$. El valor de $\Delta_f$ corresponde a la máxima diferencia de frecuencia con respecto a la frecuencia central cuando se modula con una señal de amplitud fija $A_m$, esto se cumple cuando la señal de entrada tiene máxima amplitud (en un instante determinado, por ejemplo $t_0$), es decir $m(t_0)=A_m$, lo cual implica $V_c=m'(t_0)=V_{T4}+A_m\approx 6+9\,[V]$. El valor de $f_D$ corresponde a la pendiente de la gráfica medida en [KHz/$V$]. Finalmente $K_f$ se calcula como:
+		\begin{equation}
+			K_f = 2\pi\cdot f_D \equiv 2\pi\frac{\Delta_{f_2}-\Delta_{f_1}}{V_{c_2}-V_{c_1}}
+		\end{equation}
+		
+		La tabla \ref{tab:tabla2} muestra los valores obtenidos de manera experimental y de manera teórica.
+		
+		\begin{table}[ht]
+			\centering
+			\begin{tabular}{r|r|r|r}
+				Variable & Valor Teórico & Valor Experimental & Error experimental \% \\
+				\hline \rule{0ex}{4ex}
+				$f_c$ [KHz]			& 40	&  39.37	&  1.58 \\
+				$\Delta_f$ [KHz]  	& 25	&  23.94	&  4.24 \\
+				$f_D$ [KHz/$V$] 	& -2.77	&  -2.62	&  5.42 \\
+				$K_f$ [rad/$V$s] 	& -17.45	& -16.46	&  5.67
+			\end{tabular}
+			\caption{Comparación de valores de VCO.}
+			\label{tab:tabla2}
+		\end{table}
+		}
+		\item \textbf{Problema 2}
+		
+		\item \textbf{Problema 3}
+		
+		\item \textbf{Problema 4}
+		
+		\item \textbf{Problema 5}
+	\end{enumerate}
+\newpage
+
+\section{Conclusiones}
+	\begin{itemize}
+		\item Conclusión
+		\item Conclusión
+	\end{itemize}
+\end{document}
